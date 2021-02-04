@@ -1,3 +1,5 @@
 flask
 pytest
 pytest-pep8
+pandas
+wikipedia
