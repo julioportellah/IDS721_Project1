@@ -31,7 +31,9 @@ def pandas_sugar():
 
 @app.route('/wikipedia/<company>')
 def wikipedia_route(company):
-
+    result = wikipedia.summary(company, sentences=10)
+    return result
+    """
     # Imports the Google Cloud client library
     from google.cloud import language
     result = wikipedia.summary(company, sentences=10)
@@ -43,6 +45,7 @@ def wikipedia_route(company):
     encoding_type = language.EncodingType.UTF8
     entities = client.analyze_entities(request = {'document': document, 'encoding_type': encoding_type}).entities
     return str(entities)
+    """
 
 
 if __name__ == '__main__':
