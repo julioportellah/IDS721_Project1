@@ -2,7 +2,7 @@ from flask import Flask
 from flask import jsonify
 import pandas as pd
 import wikipedia
-
+from google.cloud import language
 
 app = Flask(__name__)
 
@@ -31,8 +31,20 @@ def pandas_sugar():
 
 @app.route('/wikipedia/<company>')
 def wikipedia_route(company):
-    result = wikipedia.summary(company, sentences=10)
-    return result
+    try:
+        result = wikipedia.summary(company, sentences=10)
+
+        client = language.LanguageServiceClient()
+        document = language.Document(
+            content=result,
+            type_=language.Document.Type.PLAIN_TEXT)
+        encoding_type = language.EncodingType.UTF8
+        entities = client.analyze_entities(request = {'document': document, 'encoding_type': encoding_type}).entities
+        return str(entities)  
+    except:
+        return "The {} entered didn't work".format(company)
+    # result = wikipedia.summary(company, sentences=10)
+    # return result
     """
     # Imports the Google Cloud client library
     from google.cloud import language
