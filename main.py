@@ -41,7 +41,8 @@ def wikipedia_route(company):
         encoding_type = language.EncodingType.UTF8
         entities = client.analyze_entities(request = {'document': document, 'encoding_type': encoding_type}).entities
         return str(entities)  
-    except:
+    except Exception as ex:
+        print(ex)
         return "The {} entered didn't work".format(company)
     # result = wikipedia.summary(company, sentences=10)
     # return result
