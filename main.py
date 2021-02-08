@@ -22,7 +22,8 @@ def html():
     	return """
     	<title>This is a Hello World World Page</title>
     	<p>Hello</p>
-    	<p><b>World</b></p>
+    	<p><b>World!!!</b></p>
+    	<p><b>Hi</b></p>
     	"""
 @app.route('/pandas')
 def pandas_sugar():
