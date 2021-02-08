@@ -29,6 +29,7 @@ def pandas_sugar():
     df = pd.read_csv("https://raw.githubusercontent.com/noahgift/sugar/master/data/education_sugar_cdc_2003.csv")
     return jsonify(df.to_dict())
 
+"""
 @app.route('/wikipedia/<company>')
 def wikipedia_route(company):
     try:
@@ -45,7 +46,8 @@ def wikipedia_route(company):
         print(ex)
         return "The {} entered didn't work".format(company)
     # result = wikipedia.summary(company, sentences=10)
-    # return result
+    # return result 
+"""
     """
     # Imports the Google Cloud client library
     from google.cloud import language
