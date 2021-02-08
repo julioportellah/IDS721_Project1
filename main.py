@@ -32,11 +32,12 @@ def pandas_sugar():
 @app.route('/wikipedia/<company>')
 def wikipedia_route(company):
 	try:
-		from google.cloud import language
-    		return "Succeed"
-		#result = wikipedia.summary(company, sentences=10)
+		#from google.cloud import language
+    		#return "Succeed"
+		result = wikipedia.summary(company, sentences=10)
+		return result
 	except Exception as ex:
-		return "Fail"
+		return 'The word "{}" is not valid'.format(company)
 
 if __name__ == '__main__':
 	app.run(host='127.0.0.1', port=8080, debug=True)	
