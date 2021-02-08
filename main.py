@@ -32,7 +32,7 @@ def pandas_sugar():
 @app.route('/wikipedia/<company>')
 def wikipedia_route(company):
 	try:
-		#from google.cloud import language
+		from google.cloud import language
     		return "Succeed"
 		#result = wikipedia.summary(company, sentences=10)
 	except Exception as ex:
