@@ -20,10 +20,9 @@ def name(value):
 def html():
     	"""Returns some custom HTML"""
     	return """
-    	<title>This is a Hello World World Page</title>
+    	<title>This is a Hello World</title>
     	<p>Hello</p>
     	<p><b>World!!!</b></p>
-    	<p><b>Hi</b></p>
     	"""
 @app.route('/pandas')
 def pandas_sugar():
