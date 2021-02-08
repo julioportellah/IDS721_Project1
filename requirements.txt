@@ -4,3 +4,4 @@ pytest-pep8
 pandas
 wikipedia
 gunicorn
+google-cloud
