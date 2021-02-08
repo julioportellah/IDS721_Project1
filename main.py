@@ -35,7 +35,15 @@ def wikipedia_route(company):
 		from google.cloud import language
     		#return "Succeed"
 		result = wikipedia.summary(company, sentences=10)
-		return result
+		client = language.LanguageServiceClient()
+		document = language.Document(
+		    content=result,
+		    type_=language.Document.Type.PLAIN_TEXT)
+		encoding_type = language.EncodingType.UTF8
+		entities = client.analyze_entities(request = {'document': document, 'encoding_type': encoding_type}).entities
+		return str(entities)  
+		# result = wikipedia.summary(company, sentences=10)
+		# return result
 	except Exception as ex:
 		return 'The word "{}" is not valid'.format(company)
 
