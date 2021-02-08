@@ -9,7 +9,7 @@ app = Flask(__name__)
 @app.route('/')
 def hello():
     """Return a friendly HTTP greeting."""
-    return 'Hello I like to make AI Apps'
+    return 'Hello world, this is the project 1 and template for further projects that integrate gcloud'
 
 @app.route('/name/<value>')
 def name(value):
@@ -24,12 +24,12 @@ def html():
     <p>Hello</p>
     <p><b>World</b></p>
     """
+
 @app.route('/pandas')
 def pandas_sugar():
     df = pd.read_csv("https://raw.githubusercontent.com/noahgift/sugar/master/data/education_sugar_cdc_2003.csv")
     return jsonify(df.to_dict())
 
-"""
 @app.route('/wikipedia/<company>')
 def wikipedia_route(company):
     try:
@@ -43,11 +43,7 @@ def wikipedia_route(company):
         entities = client.analyze_entities(request = {'document': document, 'encoding_type': encoding_type}).entities
         return str(entities)  
     except Exception as ex:
-        print(ex)
-        return "The {} entered didn't work".format(company)
-    # result = wikipedia.summary(company, sentences=10)
-    # return result 
-"""
+        return "The entered text "{}" didn't work".format(company)
     """
     # Imports the Google Cloud client library
     from google.cloud import language
@@ -64,4 +60,4 @@ def wikipedia_route(company):
 
 
 if __name__ == '__main__':
-    app.run(host='127.0.0.1', port=8080, debug=True)
+    app.run(host='0.0.0.0', port=8080, debug=True)
